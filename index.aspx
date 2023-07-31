@@ -1,0 +1,228 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="GeMProjectDetails.index" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Welcome To Login Page</title>
+    <link href="css/responsive.css" rel="stylesheet" type="text/css" />
+
+     <style type="text/css">
+
+            body {
+              background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+              margin:0;
+              height: 100vh;
+              width: 100vw;
+              font-family: 'Lato', sans-serif;
+              font-weight: 700;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              }
+
+            .container{
+                width: 300px;
+                height: 400px;
+                background: rgba(255, 255, 255, 0.25);
+                box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+               
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.18);
+                margin: 80px auto;
+                align-content: center;
+            }
+
+            img{
+                width: 100px;
+                position: relative;
+                top: -40px;
+                left: 33%;
+            }
+
+            h2{
+                text-align:center;
+                text-transform: uppercase;
+                color: white;
+                margin-top: -10px;
+            }
+
+            form{
+                margin: 30px;
+            }
+
+            label{
+                display: block;
+                color: white;
+                margin-top: 10px;
+            }
+
+            .input{
+                display: block;
+                width: 80%;
+                background: transparent;
+                border: none;
+                outline: none;
+                border-bottom: 1px solid white;
+                padding: 10px;
+                color: white;
+                overflow: hidden;
+            }
+
+            placeholder{
+                color: white;
+                opacity: 0.4;
+            }
+
+            button{
+                width:80%;
+                margin-top: 10px;
+                padding: 8px;
+                border: none;
+                outline: none;
+                background: #FF9F67;
+                color: white;
+                font-size: 17px;
+                cursor: pointer;
+                transition: 0.2s;
+                border-radius: 20px;
+            }
+
+            a{
+                margin-left: 30%;
+                text-decoration: none;
+                color: white;
+            }
+
+
+            .btn{
+            background:#f7941d;
+            width:80%;
+            font-family:"Josefin Sans",sans-serif;
+            text-transform:capitalize;
+            padding:25px 38px !important;
+            color:#fff;
+            cursor:pointer;
+            display:inline-block !important;
+            font-size:16px;
+            font-weight:600;
+            border-radius:20px;
+            line-height:1;
+            -moz-user-select:none;
+            letter-spacing:1px;
+            line-height:0;
+            margin-bottom:0;
+            cursor:pointer;
+            transition:color 0.4s linear;
+            position:relative;
+            z-index:1;
+            border:0;
+            overflow:hidden;
+            margin:0;
+            display:inline-block !important
+            }
+
+            .btn::before{
+            content:"";
+            position:absolute;
+            left:0;
+            top:0;
+            width:101%;
+            height:101%;
+            background:#EA0037;
+            z-index:1;
+            border-radius:5px;
+            transition:transform 0.5s;
+            transition-timing-function:ease;
+            transform-origin:0 0;
+            transition-timing-function:cubic-bezier(0.5, 1.6, 0.4, 0.7);
+            transform:scaleX(0);
+            border-radius:0px
+            }
+
+            .btn:hover{
+            background-position:right
+            }
+
+            .btn:hover::before{
+            transform:scaleX(1);
+            color:#fff !important;z-index:-1
+            }
+
+            .btn:hover.btn3{
+            background-position:right;
+            border:1px solid transparent
+            }
+
+            .btn.btn3{
+            background:none;
+            border:1px solid #fff;
+            margin-left:20px;
+            color:#fff;
+            padding:25px 30px !important
+            }
+
+            .btn.btn3::before{
+            border:1px solid transparent;
+            background:transparent
+            }
+
+            .btn.btn3:hover::before{
+            background:#FF9F67;
+            border:1px solid transparent
+            }
+
+            @media only screen and (min-width: 768px) and (max-width: 991px){
+            .btn{
+            margin-left:0px !important
+            }
+            }
+
+            @media only screen and (min-width: 576px) and (max-width: 767px){
+            .btn{
+            margin-left:0px !important
+            }
+            }
+
+            @media (max-width: 575px){
+            .btn{
+            margin-left:0px !important
+            }
+            }
+
+            .btn.focus,.btn:focus{
+            outline:0;
+            box-shadow:none
+            }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="images/headcircle.png" alt="logo" />
+    <h2>NICSI GeM Login</h2>
+      <form runat="server">
+           <label>Username</label> 
+           <asp:TextBox ID="txtUserName" runat="server" placeholder="Username" class="input" autocomplete="off" MaxLength="10" AutoCompleteType="Disabled"></asp:TextBox>
+           <asp:RequiredFieldValidator ID="R1" runat="server" ErrorMessage="Please Enter User Name!"
+            ValidationGroup="aa" SetFocusOnError="true" Display="Dynamic"
+            ControlToValidate="txtUserName" autocomplete="off">*</asp:RequiredFieldValidator>
+                        
+            <label>Password</label>
+            <asp:TextBox ID="txtPassword" runat="server" placeholder="Password" TextMode="Password" CssClass="input" autocomplete="off" MaxLength="10" AutoCompleteType="Disabled"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please Enter Password!"
+            ValidationGroup="aa" SetFocusOnError="true" Display="Dynamic"
+            ControlToValidate="txtPassword" autocomplete="off">*</asp:RequiredFieldValidator> 
+
+            <br/><asp:Label  Display="Dynamic" SetFocusOnError="true" ID="lblMsg" runat="server" Text="" Font-Size="Small" Visible="false" ForeColor="Red"></asp:Label>
+            <asp:ValidationSummary ID="VS1" SetFocusOnError="true" runat="server" ValidationGroup="aa" Font-Size="Small" />
+                   
+                     
+            &nbsp;&nbsp;&nbsp;<button id="btnLogin" runat="server" type="submit" class="btn" onserverclick="btnLogin_ServerClick" ValidationGroup="aa">Login</button>
+             
+                    
+        </form>
+    </div>
+</body>
+</html>
